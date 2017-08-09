@@ -1,0 +1,31 @@
+
+        digraph adlantis_sp {
+          concentrate="true";
+labelloc="t";
+nodesep="0.5";
+ratio="1.0";
+fontsize="13";
+pad="0.4,0.4";
+rankdir="LR";
+margin="0,0";
+
+          node [shape="Mrecord",fontsize="15",margin="0.07,0.05",penwidth="1.0"];
+          edge [fontsize="7",dir="both",arrowsize="1.4",penwidth="1.0",labelangle="32",labeldistance="1.8"];
+          clients [label="TABLE clients|id |name |birthday |email |phone | "];
+appointments [label="TABLE appointments|id |time |status |price |scheduled_at |canceled_at |completed_at | "];
+ratings [label="TABLE ratings|id |score |comment | "];
+providers [label="TABLE providers|id |name | "];
+services [label="TABLE services|id |name |price |duration | "];
+employees [label="TABLE employees|id |name |cpf |phone |commission | "];
+timeslots [label="TABLE timeslots|id |day_of_week |start_time |end_time | "];
+
+          providers -> employees [arrowhead=inv, arrowtail=odot, dir=both];
+providers -> services [arrowhead=inv, arrowtail=odot, dir=both];
+clients -> appointments [arrowhead=inv, arrowtail=odot, dir=both];
+services -> appointments [arrowhead=inv, arrowtail=odot, dir=both];
+appointments -> ratings [arrowhead=odot, arrowtail=odot, dir=both];
+services -> timeslots [arrowhead=inv, arrowtail=odot, dir=both];
+employees -> appointments [arrowhead=inv, arrowtail=odot, dir=both];
+
+        }
+    
